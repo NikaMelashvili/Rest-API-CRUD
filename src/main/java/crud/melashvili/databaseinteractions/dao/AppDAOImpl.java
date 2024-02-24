@@ -82,16 +82,19 @@ public class AppDAOImpl implements AppDAO{
     // update
 
     @Override
+    @Transactional
     public void update(Student student) {
         manager.merge(student);
     }
 
     @Override
+    @Transactional
     public void update(Subjects subjects) {
         manager.merge(subjects);
     }
 
     @Override
+    @Transactional
     public void update(Lecturer lecturer) {
         manager.merge(lecturer);
     }
@@ -99,16 +102,19 @@ public class AppDAOImpl implements AppDAO{
     // delete
 
     @Override
+    @Transactional
     public void delete(Student student) {
         manager.remove(student);
     }
 
     @Override
+    @Transactional
     public void delete(Subjects subject) {
         manager.remove(subject);
     }
 
     @Override
+    @Transactional
     public void delete(Lecturer lecturer) {
         manager.remove(lecturer);
     }
