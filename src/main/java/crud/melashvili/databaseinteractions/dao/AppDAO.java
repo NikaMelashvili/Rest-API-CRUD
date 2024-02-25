@@ -34,15 +34,27 @@ public interface AppDAO {
 
     void update(Student student);
 
+    void updateStudentById(int id);
+
     void update(Subjects subjects);
 
+    void updateSubjectById(int id);
+
     void update(Lecturer lecturer);
+
+    void updateLecturerById(int id);
 
     // delete
 
     void delete(Student student);
 
+    void deleteStudentById(int id);
+
     void delete(Subjects subject);
 
+    void deleteSubjectById(int id);
+
     void delete(Lecturer lecturer);
+
+    void deleteLecturerById(int id);
 }

@@ -1,0 +1,2 @@
+# About the API
+This project serves as a demonstration of my proficiency in creating CRUD APIs. It supports searching by ID, delete by ID, and update by ID functionalities. Additionally, it utilizes relational mapping to interact with MySQL tables. To further enhance its capabilities.

@@ -8,6 +8,7 @@ import jakarta.persistence.TypedQuery;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.security.auth.Subject;
 import java.util.List;
 
 @Repository
@@ -89,13 +90,34 @@ public class AppDAOImpl implements AppDAO{
 
     @Override
     @Transactional
+    public void updateStudentById(int id) {
+        Student student = manager.find(Student.class, id);
+        manager.merge(student);
+    }
+
+    @Override
+    @Transactional
     public void update(Subjects subjects) {
         manager.merge(subjects);
     }
 
     @Override
     @Transactional
+    public void updateSubjectById(int id) {
+        Subjects subjects = manager.find(Subjects.class, id);
+        manager.merge(subjects);
+    }
+
+    @Override
+    @Transactional
     public void update(Lecturer lecturer) {
+        manager.merge(lecturer);
+    }
+
+    @Override
+    @Transactional
+    public void updateLecturerById(int id) {
+        Lecturer lecturer = manager.find(Lecturer.class, id);
         manager.merge(lecturer);
     }
 
@@ -109,13 +131,34 @@ public class AppDAOImpl implements AppDAO{
 
     @Override
     @Transactional
+    public void deleteStudentById(int id) {
+        Student student = manager.find(Student.class, id);
+        manager.remove(student);
+    }
+
+    @Override
+    @Transactional
     public void delete(Subjects subject) {
         manager.remove(subject);
     }
 
     @Override
     @Transactional
+    public void deleteSubjectById(int id) {
+        Subjects subjects = manager.find(Subjects.class, id);
+        manager.remove(subjects);
+    }
+
+    @Override
+    @Transactional
     public void delete(Lecturer lecturer) {
+        manager.remove(lecturer);
+    }
+
+    @Override
+    @Transactional
+    public void deleteLecturerById(int id) {
+        Lecturer lecturer = manager.find(Lecturer.class, id);
         manager.remove(lecturer);
     }
 }

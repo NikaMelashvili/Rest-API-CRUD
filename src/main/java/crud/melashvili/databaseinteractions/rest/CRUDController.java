@@ -78,9 +78,14 @@ public class CRUDController {
 
     // PUT method
 
-    @PutMapping("/update/student")
+    @PutMapping("/update/students")
     public void updateStudent(@RequestBody Student student){
         appDAO.update(student);
+    }
+
+    @PutMapping("/update/students/{id}")
+    public void updateStudentById(@PathVariable int id){
+        appDAO.updateStudentById(id);
     }
 
     @PutMapping("/update/subject")
@@ -88,16 +93,31 @@ public class CRUDController {
         appDAO.update(subject);
     }
 
+    @PutMapping("/update/subject/{id}")
+    public void updateSubjectById(@PathVariable int id){
+        appDAO.updateSubjectById(id);
+    }
+
     @PutMapping("/update/lecturer")
     public void updateLecturer(@RequestBody Lecturer lecturer){
         appDAO.update(lecturer);
     }
 
+    @PutMapping("/update/lecturer/{id}")
+    public void updateLecturerById(@PathVariable int id){
+        appDAO.updateLecturerById(id);
+    }
+
     // DELETE method
 
-    @DeleteMapping("/delete/student")
+    @DeleteMapping("/delete/students")
     public void deleteStudent(@RequestBody Student student){
         appDAO.delete(student);
+    }
+
+    @DeleteMapping("/delete/students/{id}")
+    public void deleteStudentById(@PathVariable int id){
+        appDAO.deleteStudentById(id);
     }
 
     @DeleteMapping("/delete/subject")
@@ -105,8 +125,18 @@ public class CRUDController {
         appDAO.delete(subjects);
     }
 
+    @DeleteMapping("/delete/subject/{id}")
+    public void deleteSubjectById(@PathVariable int id){
+        appDAO.deleteSubjectById(id);
+    }
+
     @DeleteMapping("/delete/lecturer")
     public void deleteLecturer(@RequestBody Lecturer lecturer){
         appDAO.delete(lecturer);
+    }
+
+    @DeleteMapping("/delete/lecturer/{id}")
+    public void deleteLecturerById(@PathVariable int id){
+        appDAO.deleteLecturerById(id);
     }
 }
