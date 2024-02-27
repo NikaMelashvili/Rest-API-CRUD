@@ -22,27 +22,20 @@ public class DatabaseInteractionsApplication {
 	@Bean
 	public CommandLineRunner commandLineRunner(AppDAO appDAO) {
 		return runner -> {
-//			insertSubjectAndStudentAndLecturer(appDAO);
-//			createAndSaveAll(appDAO);
-//			createStudent(appDAO);
 			createSubjects(appDAO);
 		};
 	}
 
 	private void createSubjects(AppDAO appDAO) {
 		Student student = new Student("Nika", "Melashvili", "mela@gmail.com");
-		Subjects subject = new Subjects("Data structures and algorithms");
-		student.addSubject(subject);
-		appDAO.addStudent(student);
-	}
-
-	private void createAndSaveAll(AppDAO appDAO) {
-		Student student = new Student("Nika", "Melashvili", "mela@gmail.com");
-		Subjects subject = new Subjects("Data structures and algorithms");
 		Lecturer lecturer = new Lecturer("Gocha", "Mandaria", 50);
+		Lecturer lecturer1 = new Lecturer("Nikoloz", "Katsitadze", 28);
+		Subjects subject = new Subjects("Data structures and algorithms");
+		Subjects subject1 = new Subjects("Java 2 Spring Boot");
 		subject.setLecturer(lecturer);
-		appDAO.addSubject(subject);
-		System.out.println(subject);
-		System.out.println(subject.getLecturer());
+		subject1.setLecturer(lecturer1);
+		student.addSubject(subject);
+		student.addSubject(subject1);
+		appDAO.addStudent(student);
 	}
 }
