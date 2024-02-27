@@ -26,7 +26,7 @@ create table subjects(
 create table student_subject(
     student_id int,
     subject_id int,
-    primary key(student_id, subject_id),
     foreign key(student_id) references students(id), 
-    foreign key(subject_id) references subjects(id)
+    foreign key(subject_id) references subjects(id),
+    primary key (student_id, subject_id)
 );

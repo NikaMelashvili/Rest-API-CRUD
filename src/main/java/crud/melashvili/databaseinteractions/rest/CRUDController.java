@@ -4,7 +4,6 @@ import crud.melashvili.databaseinteractions.dao.AppDAOImpl;
 import crud.melashvili.databaseinteractions.entity.Lecturer;
 import crud.melashvili.databaseinteractions.entity.Student;
 import crud.melashvili.databaseinteractions.entity.Subjects;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

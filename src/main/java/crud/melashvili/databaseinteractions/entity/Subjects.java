@@ -17,11 +17,13 @@ public class Subjects {
     @Column(name = "subject_name")
     private String subjectName;
 
-    @ManyToOne
-    @JoinColumn(name = "lecturer_id", referencedColumnName = "id")
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "lecturer_id")
     private Lecturer lecturer;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.DETACH, CascadeType.MERGE,
+    @ManyToMany(fetch = FetchType.LAZY,
+//            cascade = CascadeType.ALL)
+            cascade = {CascadeType.DETACH, CascadeType.MERGE,
                                         CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinTable(
             name ="student_subject",
@@ -29,9 +31,8 @@ public class Subjects {
             inverseJoinColumns = @JoinColumn(name = "student_id"))
     private List<Student> students;
 
-    public Subjects(String subjectName, Lecturer lecturer) {
+    public Subjects(String subjectName) {
         this.subjectName = subjectName;
-        this.lecturer = lecturer;
     }
 
     public Subjects() {

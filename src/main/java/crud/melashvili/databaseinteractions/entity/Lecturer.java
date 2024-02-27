@@ -2,6 +2,8 @@ package crud.melashvili.databaseinteractions.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "lecturer")
 public class Lecturer {
@@ -19,6 +21,9 @@ public class Lecturer {
 
     @Column(name = "age")
     private int age;
+
+    @OneToMany(mappedBy = "lecturer")
+    private List<Subjects> subjects;
 
     public Lecturer(String firstName, String lastName, int age) {
         this.firstName = firstName;
@@ -61,6 +66,14 @@ public class Lecturer {
         this.age = age;
     }
 
+    public List<Subjects> getSubjects() {
+        return subjects;
+    }
+
+    public void setSubjects(List<Subjects> subjects) {
+        this.subjects = subjects;
+    }
+
     @Override
     public String toString() {
         return "Lecturer{" +
@@ -68,6 +81,7 @@ public class Lecturer {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", age=" + age +
+                ", subjects=" + subjects +
                 '}';
     }
 }
